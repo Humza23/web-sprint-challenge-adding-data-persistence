@@ -5,13 +5,13 @@ const getAll = () => {
     return db('resources')
 }
 
-const getById = (id) => {
-    return db('cars').where('id', id).first()
+const getById = (resource_id) => {
+    return db('resources').where('resource_id', resource_id).first()
   }
 
 const create = async(resource) => {
-    const [id] = await db('resources').insert(resource)
-    return getById(id)
+    const [resource_id] = await db('resources').insert(resource)
+    return getById(resource_id)
 }
 
 module.exports = {
