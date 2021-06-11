@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
     return knex.schema
     .createTable('projects', table => {
@@ -39,11 +38,12 @@ exports.up = function(knex) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE')
     })
-
-
-
 };
 
 exports.down = function(knex) {
-  
+    return knex.schema
+    .dropTableIfExists('project_resources')
+    .dropTableIfExists('tasks')
+    .dropTableIfExists('resources')
+    .dropTableIfExists('projects')   
 };
